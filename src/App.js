@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
+  const location = useLocation();
+    const shouldShowHeader = location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/forgot-password';
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {shouldShowHeader && <HeaderManager/>}
+      <Router>
+        <Routes path=""></Routes>
+      </Router>
     </div>
   );
 }
